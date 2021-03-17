@@ -1,15 +1,10 @@
-require('dotenv').config()
-const axios = require('axios')
-const baseURL = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0001-001'
-const CWB_AUTH_ID = process.env.CWB_AUTH_ID
-
+const getOpenCWBdata = require('../utils/apiHelpers')
 const { Weather } = require('../models')
 
 async function getWeatherPerHour() {
   try {
-    const response = await axios.get(`${baseURL}?Authorization=${CWB_AUTH_ID}`)
-    const locations = response.data.records.location
-    const weathers = locations.map(l => {
+    const data = await getOpenCWBdata()
+    const weathers = data.map(l => {
       const weatherObj = {
         StationId: l.stationId,
         obsTime: l.time.obsTime,
