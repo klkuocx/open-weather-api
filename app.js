@@ -10,7 +10,7 @@ const getWeatherPerHour = require('./jobs/getWeatherPerHour.js')
 routes(app)
 
 // Schedule job to be run on the server.
-cron.schedule('0 0 */1 * * *', async () => await getWeatherPerHour)
+cron.schedule('0 0 */1 * * *', getWeatherPerHour)
 
 // listen to server
 app.listen(port, () => {

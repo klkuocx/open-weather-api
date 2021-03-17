@@ -6,7 +6,8 @@ const CWB_AUTH_ID = process.env.CWB_AUTH_ID
 async function getOpenCWBdata() {
   const response = await axios.get(`${baseURL}?Authorization=${CWB_AUTH_ID}`)
   const locations = response.data.records.location
-  return locations
+  const data = locations.filter(l => l.parameter[0].parameterValue === '臺北市' || l.parameter[0].parameterValue === '新北市' || l.parameter[0].parameterValue === '桃園市')
+  return data
 }
 
 module.exports = getOpenCWBdata
