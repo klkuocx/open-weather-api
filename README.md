@@ -32,10 +32,10 @@ if you add a CITY query with CITY_NAME, you will get certain data in the CITY, o
 
 4. Setup MySQL, db model and seeds
 ```
-drop database if exists ac_twitter_workspace;
-create database ac_twitter_workspace;
-drop database if exists ac_twitter_workspace_test;
-create database ac_twitter_workspace_test;
+drop database if exists open_weather_dev;
+create database open_weather_dev;
+drop database if exists open_weather_test;
+create database open_weather_test;
 ```
 ```
 [~/open-weather-api] $ npx sequelize db:migrate
