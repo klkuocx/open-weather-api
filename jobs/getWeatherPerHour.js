@@ -20,7 +20,7 @@ async function getWeatherPerHour() {
 
     // save data in DB
     await Weather.bulkCreate(weathers)
-    console.log('Open weather data were updated successfully')
+    return console.log('Open weather data were updated successfully')
   } catch (err) { console.error(err) }
 }
 

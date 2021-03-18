@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.myAssociation = this.belongsTo(models.Station)
+      this.myAssociation = this.belongsTo(models.Station, { foreignKey: 'StationId', targetKey: 'stationId' })
     }
   }
   Weather.init({
